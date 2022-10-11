@@ -33,7 +33,7 @@ class ContactMail extends Mailable
     {
         // return $this->subject('Mail from ItSolutionStuff.com')
         // ->view('');
-        return $this->subject($this->data['subject'])->from($this->data['email'])->view('emails.contact')->with('data', $this->data);
+        return $this->subject($this->data['subject'])->from($this->data['email'])->view('emails.contact')->with('message', $this->data);
 
 
     }
