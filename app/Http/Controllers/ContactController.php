@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\contact;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
@@ -19,7 +19,7 @@ class ContactController extends Controller
             'subject' => 'required|min:1|max:25',
             'message'=>'nullable|required',
         ]);
-        $message = new contact;
+        $message = new Contact;
         $message->name = $request->input('name');
         $message->email = $request->input('email');
         $message->subject = $request->input('subject');
