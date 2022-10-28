@@ -26,6 +26,7 @@ class ContactController extends Controller
         $message->message = $request->input('message');
         $message->save();
         Mail::to('your_email@gmail.com')->send(new ContactMail($message));
-        return redirect('/#contact-section')->with('status','Your Message Send Successfully');
+        $request->session()->flash('success', 'Message Sent Successfully.');
+        return redirect('/#contact-section');
     }
 }

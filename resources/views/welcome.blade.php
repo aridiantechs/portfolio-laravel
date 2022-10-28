@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3.10.0/notyf.min.css" integrity="sha256-IwkvZNRC/3S26O1gWwjBINmrPZ4zYvPX4z/98OKWHkQ=" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -1201,6 +1202,57 @@
   <script src="js/scrollax.min.js"></script>
 
   <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+<script>
+    // Create an instance of Notyf
+    var notyf = new Notyf({
+        duration: 1000,
+        position: {
+            x: 'right',
+            y: 'top',
+        },
+        types: [
+            {
+                type: 'info',
+                background: 'blue',
+                icon: false
+            },
+            {
+                type: 'warning',
+                background: 'orange',
+                icon: {
+                    className: 'material-icons',
+                    tagName: 'i',
+                    text: 'warning'
+                }
+            },
+            {
+                type: 'error',
+                // background: 'indianred',
+                duration: 3000,
+                dismissible: true
+            },
+            {
+                type: 'success',
+                // background: 'indianred',
+                duration: 3000,
+                dismissible: true
+            }
+        ]
+    });
+
+    @if(session()->has('success'))
+        notyf.success("{{session()->get('success')}}");
+
+    @elseif(session()->has('error'))
+        notyf.error("{{session()->get('error')}}");
+    @endif
+    // Display an error notification
+
+
+    // Display a success notification
+
+</script>
 
   </body>
 </html>
